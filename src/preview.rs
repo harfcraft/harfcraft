@@ -6,10 +6,7 @@ use gpui_kit::{
     component::{alert::Alert, input::Input},
     point, px,
 };
-use harfrust::{
-    Script,
-    font::glyph::outline::{DrawMemory, DrawOptions, PathSink},
-};
+use harfrust::font::glyph::outline::{DrawMemory, DrawOptions, PathSink};
 use std::{path::PathBuf, time::Duration};
 
 pub struct Preview {
@@ -82,11 +79,13 @@ impl Preview {
                     let font = harfrust::Font::new(bytes, 0).unwrap();
                     let shaper_font = harfrust::ShaperFont::new(&font);
                     let mut buffer = harfrust::Buffer::new();
-                    buffer.set_script(Some(Script::ARABIC));
-                    buffer.set_language(harfrust::Language::new("ar"));
-                    buffer.set_direction(harfrust::Direction::RightToLeft);
                     let upem = font.units_per_em() as f32;
                     buffer.push_str(&text);
+                    buffer.guess_segment_properties();
+                    buffer.set_message_function(Some(Box::new(|_buffer, _font, message| {
+                        tracing::info!(message);
+                        true
+                    })));
                     match harfrust::shape(
                         &shaper_font,
                         &mut buffer,
@@ -112,7 +111,6 @@ impl Preview {
                                     DrawMemory::Scratch,
                                     &mut sink,
                                 );
-                                tracing::info!(?position);
                                 glyphs.push(PreviewGlyph {
                                     path: sink,
                                     x: x + (position.x_offset as f32 / upem),
