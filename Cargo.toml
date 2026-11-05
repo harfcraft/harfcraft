@@ -10,7 +10,7 @@ edition = "2024"
 description = "An experimental, UFO font IDE built in Rust using gpui-kit and Google Fontations"
 license = "Apache-2.0"
 readme = "README.md"
-repository = "https://github.com/aalouaoui/harfcraft"
+repository = "https://github.com/harfcraft/harfcraft"
 keywords = ["font-editor", "ide", "ufo", "typography", "gpui", "fontations"]
 
 [profile.dev]
