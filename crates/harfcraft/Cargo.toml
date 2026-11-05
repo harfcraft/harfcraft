@@ -9,3 +9,5 @@ repository.workspace = true
 keywords.workspace = true
 
 [dependencies]
+tracing.workspace = true
+logging = { path = "../logging" }

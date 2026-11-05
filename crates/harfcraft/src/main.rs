@@ -1,3 +1,4 @@
 fn main() {
-    println!("Hello, world!");
+    logging::init();
+    tracing::info!("Hello, world!");
 }
