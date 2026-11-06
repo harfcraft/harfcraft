@@ -10,4 +10,8 @@ keywords.workspace = true
 
 [dependencies]
 tracing.workspace = true
+clap.workspace = true
+harfcraft_core = { path = "../core" }
+cli = { path = "../cli" }
 logging = { path = "../logging" }
+shell = { path = "../shell" }
