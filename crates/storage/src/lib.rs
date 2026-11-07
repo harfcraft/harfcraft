@@ -23,11 +23,17 @@ impl AppStorage {
     }
 
     pub fn config_file() -> anyhow::Result<PathBuf> {
-        Ok(Self::config_dir()?.join("settings.json"))
+        Ok(Self::config_dir()?.join("config.json"))
     }
 
     pub fn keybindings_file() -> anyhow::Result<PathBuf> {
         Ok(Self::config_dir()?.join("keybindings.json"))
+    }
+
+    pub fn themes_dir() -> anyhow::Result<PathBuf> {
+        let path = Self::config_dir()?.join("themes");
+        fs::create_dir_all(&path)?;
+        Ok(path.to_owned())
     }
 
     pub fn state_dir() -> anyhow::Result<PathBuf> {

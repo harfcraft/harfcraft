@@ -12,5 +12,4 @@ keywords.workspace = true
 serde.workspace = true
 tracing.workspace = true
 anyhow.workspace = true
-harfcraft_core = { path = "../core" }
 storage = { path = "../storage" }

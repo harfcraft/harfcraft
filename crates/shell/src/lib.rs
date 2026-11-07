@@ -1,4 +1,5 @@
 use crate::shell::AppShell;
+use config::AppConfig;
 use gpui_kit::base::Root;
 use gpui_kit::component::TitleBar;
 use gpui_kit::*;
@@ -12,6 +13,12 @@ pub fn run(path: Option<PathBuf>) {
         .with_assets(gpui_kit::assets::AllAssets)
         .run(move |cx| {
             gpui_kit::init(cx);
+
+            let config = AppConfig::load();
+            let theme_name = config.theme().into();
+            if let Err(err) = themes::init(cx, theme_name) {
+                tracing::error!(%err);
+            };
             cx.set_app_identity(APP_ID, APP_NAME);
             cx.activate(true);
 

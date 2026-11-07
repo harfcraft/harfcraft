@@ -1,0 +1,15 @@
+[package]
+name = "themes"
+version.workspace = true
+edition.workspace = true
+description.workspace = true
+license.workspace = true
+readme.workspace = true
+repository.workspace = true
+keywords.workspace = true
+
+[dependencies]
+gpui-kit.workspace = true
+tracing.workspace = true
+anyhow.workspace = true
+storage = { path = "../storage" }

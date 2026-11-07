@@ -16,7 +16,7 @@ impl AppSession {
             Ok(path) => load_json(&path),
             Err(err) => {
                 tracing::error!(%err, "Failed to resolve session file path");
-                AppSession::default()
+                Self::default()
             }
         }
     }

@@ -13,5 +13,7 @@ gpui-kit.workspace = true
 tracing.workspace = true
 harfcraft_core = { path = "../core" }
 session = { path = "../session" }
+config = { path = "../config" }
 project = { path = "../project" }
 titlebar = { path = "../titlebar" }
+themes = { path = "../themes" }

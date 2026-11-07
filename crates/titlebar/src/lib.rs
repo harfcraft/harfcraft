@@ -1,4 +1,6 @@
-use gpui_kit::{component::TitleBar, *};
+use gpui_kit::component::{ActiveTheme, TitleBar};
+use gpui_kit::{App, Entity, Window, prelude::*};
+use gpui_kit::{IntoElement, div};
 use harfcraft_core::constants::APP_NAME;
 use project::Project;
 
@@ -15,13 +17,11 @@ impl AppTitleBar {
 
 impl RenderOnce for AppTitleBar {
     fn render(self, _window: &mut Window, cx: &mut App) -> impl IntoElement {
-        let title = match self.project.as_ref() {
-            Some(proj) => {
-                let project_ref = proj.read(cx);
-                format!("{APP_NAME} — {}", project_ref.name())
-            }
-            None => APP_NAME.to_string(),
-        };
-        TitleBar::new().child(title)
+        TitleBar::new()
+            .child(div().child(APP_NAME).text_color(cx.theme().primary))
+            .when_some(self.project.as_ref(), |this, project| {
+                let name = project.read(cx).name().to_string();
+                this.child(name)
+            })
     }
 }
