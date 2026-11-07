@@ -10,3 +10,5 @@ keywords.workspace = true
 
 [dependencies]
 gpui-kit.workspace = true
+serde.workspace = true
+schemars.workspace = true

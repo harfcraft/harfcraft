@@ -15,4 +15,5 @@ session = { path = "../session" }
 project = { path = "../project" }
 workspace = { path = "../workspace" }
 titlebar = { path = "../titlebar" }
+welcome = { path = "../welcome" }
 actions = { path = "../actions" }
