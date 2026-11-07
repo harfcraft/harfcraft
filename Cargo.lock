@@ -6930,6 +6930,7 @@ dependencies = [
  "actions",
  "gpui-kit",
  "harfcraft_core",
+ "project",
  "workspace",
 ]
 

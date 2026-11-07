@@ -15,7 +15,7 @@ pub struct Project {
 }
 
 impl Project {
-    pub fn from_path(path: PathBuf) -> anyhow::Result<Self> {
+    pub fn from_path(path: &Path) -> anyhow::Result<Self> {
         let path = path.canonicalize()?;
         let metadata = fs::metadata(&path)?;
         Ok(Self {
