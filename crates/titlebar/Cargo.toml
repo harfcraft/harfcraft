@@ -11,4 +11,5 @@ keywords.workspace = true
 [dependencies]
 gpui-kit.workspace = true
 harfcraft_core = { path = "../core" }
-project = { path = "../project" }
+workspace = { path = "../workspace" }
+actions = { path = "../actions" }

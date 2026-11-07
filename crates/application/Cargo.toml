@@ -15,3 +15,4 @@ harfcraft_core = { path = "../core" }
 config = { path = "../config" }
 themes = { path = "../themes" }
 workbench = { path = "../workbench" }
+actions = { path = "../actions" }

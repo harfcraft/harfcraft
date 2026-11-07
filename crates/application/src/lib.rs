@@ -12,6 +12,7 @@ pub fn run(path: Option<PathBuf>) {
         .with_assets(gpui_kit::assets::AllAssets)
         .run(move |cx| {
             gpui_kit::init(cx);
+            actions::init();
 
             let config = AppConfig::load();
             let theme_name = config.theme().into();

@@ -13,4 +13,6 @@ gpui-kit.workspace = true
 tracing.workspace = true
 session = { path = "../session" }
 project = { path = "../project" }
+workspace = { path = "../workspace" }
 titlebar = { path = "../titlebar" }
+actions = { path = "../actions" }

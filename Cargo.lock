@@ -83,6 +83,13 @@ dependencies = [
 ]
 
 [[package]]
+name = "actions"
+version = "0.1.0"
+dependencies = [
+ "gpui-kit",
+]
+
+[[package]]
 name = "addr2line"
 version = "0.27.1"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -235,6 +242,7 @@ checksum = "330a5ed07fa54e4702c9d6c4174f74427fc0ef6e214bbd677ae50a5099946470"
 name = "application"
 version = "0.1.0"
 dependencies = [
+ "actions",
  "config",
  "gpui-kit",
  "harfcraft_core",
@@ -6919,9 +6927,10 @@ checksum = "fd3ca314f692efd6c868f8408f53fe444634a845f96c028b97d35f6a1f79f0ee"
 name = "titlebar"
 version = "0.1.0"
 dependencies = [
+ "actions",
  "gpui-kit",
  "harfcraft_core",
- "project",
+ "workspace",
 ]
 
 [[package]]
@@ -8532,10 +8541,22 @@ checksum = "1ebf944e87a7c253233ad6766e082e3cd714b5d03812acc24c318f549614536e"
 name = "workbench"
 version = "0.1.0"
 dependencies = [
+ "actions",
  "gpui-kit",
  "project",
  "session",
  "titlebar",
+ "tracing",
+ "workspace",
+]
+
+[[package]]
+name = "workspace"
+version = "0.1.0"
+dependencies = [
+ "actions",
+ "gpui-kit",
+ "project",
  "tracing",
 ]
 
