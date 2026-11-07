@@ -1,5 +1,5 @@
 [package]
-name = "shell"
+name = "application"
 version.workspace = true
 edition.workspace = true
 description.workspace = true
@@ -12,8 +12,6 @@ keywords.workspace = true
 gpui-kit.workspace = true
 tracing.workspace = true
 harfcraft_core = { path = "../core" }
-session = { path = "../session" }
 config = { path = "../config" }
-project = { path = "../project" }
-titlebar = { path = "../titlebar" }
 themes = { path = "../themes" }
+workbench = { path = "../workbench" }

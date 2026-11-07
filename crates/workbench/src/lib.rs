@@ -6,11 +6,18 @@ use session::AppSession;
 use std::path::PathBuf;
 use titlebar::AppTitleBar;
 
-pub struct AppShell {
+pub struct Workbench {
     project: Option<Entity<Project>>,
+    focus: FocusHandle,
 }
 
-impl AppShell {
+impl Focusable for Workbench {
+    fn focus_handle(&self, _cx: &App) -> FocusHandle {
+        self.focus.clone()
+    }
+}
+
+impl Workbench {
     pub fn new(path: Option<PathBuf>, _window: &mut Window, cx: &mut Context<Self>) -> Self {
         let mut session = AppSession::load();
         let project = path.or(session.last_project_path.clone()).and_then(|path| {
@@ -26,11 +33,14 @@ impl AppShell {
             }
         });
 
-        Self { project }
+        Self {
+            project,
+            focus: cx.focus_handle(),
+        }
     }
 }
 
-impl Render for AppShell {
+impl Render for Workbench {
     fn render(&mut self, _window: &mut Window, cx: &mut Context<Self>) -> impl IntoElement {
         v_flex()
             .child(AppTitleBar::new(self.project.clone()))

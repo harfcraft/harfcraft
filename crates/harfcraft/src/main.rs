@@ -9,6 +9,6 @@ fn main() {
     if let Some(path) = &args.path {
         tracing::info!("Opening {} ", path.to_string_lossy());
     }
-    shell::run(args.path);
+    application::run(args.path);
     tracing::info!("Closing {} v{}", APP_NAME, APP_VERSION);
 }

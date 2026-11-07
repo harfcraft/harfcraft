@@ -232,6 +232,18 @@ source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "330a5ed07fa54e4702c9d6c4174f74427fc0ef6e214bbd677ae50a5099946470"
 
 [[package]]
+name = "application"
+version = "0.1.0"
+dependencies = [
+ "config",
+ "gpui-kit",
+ "harfcraft_core",
+ "themes",
+ "tracing",
+ "workbench",
+]
+
+[[package]]
 name = "arbitrary"
 version = "1.5.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -3084,11 +3096,11 @@ dependencies = [
 name = "harfcraft"
 version = "0.1.0"
 dependencies = [
+ "application",
  "clap",
  "cli",
  "harfcraft_core",
  "logging",
- "shell",
  "tracing",
 ]
 
@@ -6298,20 +6310,6 @@ dependencies = [
 ]
 
 [[package]]
-name = "shell"
-version = "0.1.0"
-dependencies = [
- "config",
- "gpui-kit",
- "harfcraft_core",
- "project",
- "session",
- "themes",
- "titlebar",
- "tracing",
-]
-
-[[package]]
 name = "shellexpand"
 version = "3.1.2"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -8529,6 +8527,17 @@ name = "wit-bindgen"
 version = "0.57.1"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "1ebf944e87a7c253233ad6766e082e3cd714b5d03812acc24c318f549614536e"
+
+[[package]]
+name = "workbench"
+version = "0.1.0"
+dependencies = [
+ "gpui-kit",
+ "project",
+ "session",
+ "titlebar",
+ "tracing",
+]
 
 [[package]]
 name = "writeable"

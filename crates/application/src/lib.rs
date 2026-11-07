@@ -1,12 +1,11 @@
-use crate::shell::AppShell;
 use config::AppConfig;
 use gpui_kit::base::Root;
 use gpui_kit::component::TitleBar;
+use gpui_kit::prelude::*;
 use gpui_kit::*;
 use harfcraft_core::constants::{APP_ID, APP_NAME};
 use std::path::PathBuf;
-
-mod shell;
+use workbench::Workbench;
 
 pub fn run(path: Option<PathBuf>) {
     gpui_kit::application()
@@ -29,8 +28,8 @@ pub fn run(path: Option<PathBuf>) {
             };
             cx.spawn(async move |cx| {
                 cx.open_window(window_options, |window, cx| {
-                    let shell = cx.new(|cx| AppShell::new(path, window, cx));
-                    cx.new(|cx| Root::new(shell, window, cx))
+                    let workbench = cx.new(|cx| Workbench::new(path, window, cx));
+                    cx.new(|cx| Root::new(workbench, window, cx))
                 })
                 .expect("Failed to open window");
             })
