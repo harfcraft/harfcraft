@@ -11,5 +11,5 @@ keywords.workspace = true
 [dependencies]
 gpui-kit.workspace = true
 tracing.workspace = true
-project = { path = "../project" }
-actions = { path = "../actions" }
+project.workspace = true
+actions.workspace = true

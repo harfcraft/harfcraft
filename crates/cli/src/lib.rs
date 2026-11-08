@@ -1,5 +1,5 @@
 use clap::Parser;
-use harfcraft_core::constants::BIN_NAME;
+use common::constants::BIN_NAME;
 use std::path::PathBuf;
 
 #[derive(Parser, Debug)]

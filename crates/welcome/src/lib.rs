@@ -1,6 +1,5 @@
-use std::path::PathBuf;
-
 use actions::{LoadWorkspace, PickWorkspace};
+use common::constants::{APP_DESCRIPTION, APP_NAME};
 use gpui_kit::assets::IconName;
 use gpui_kit::base::{StyledExt, h_flex, v_flex};
 use gpui_kit::component::ActiveTheme;
@@ -9,8 +8,8 @@ use gpui_kit::component::label::Label;
 use gpui_kit::component::separator::Separator;
 use gpui_kit::prelude::*;
 use gpui_kit::*;
-use harfcraft_core::constants::{APP_DESCRIPTION, APP_NAME};
 use session::AppSession;
+use std::path::PathBuf;
 
 pub struct Welcome {
     recent_projects: Vec<SharedString>,

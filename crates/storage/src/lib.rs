@@ -1,6 +1,6 @@
 use anyhow::Context;
+use common::constants::{APP_NAME, APP_ORGANIZATION, APP_QUALIFIER};
 use directories::ProjectDirs;
-use harfcraft_core::constants::{APP_NAME, APP_ORGANIZATION, APP_QUALIFIER};
 use serde::{Serialize, de::DeserializeOwned};
 use std::{
     fs,

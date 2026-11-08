@@ -1,9 +1,9 @@
+use common::constants::{APP_ID, APP_NAME};
 use config::AppConfig;
 use gpui_kit::base::Root;
 use gpui_kit::component::TitleBar;
 use gpui_kit::prelude::*;
 use gpui_kit::*;
-use harfcraft_core::constants::{APP_ID, APP_NAME};
 use std::path::PathBuf;
 use workbench::Workbench;
 

@@ -10,4 +10,4 @@ keywords.workspace = true
 
 [dependencies]
 anyhow.workspace = true
-harfcraft_core = { path = "../core" }
+common.workspace = true

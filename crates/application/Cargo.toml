@@ -11,8 +11,8 @@ keywords.workspace = true
 [dependencies]
 gpui-kit.workspace = true
 tracing.workspace = true
-harfcraft_core = { path = "../core" }
-config = { path = "../config" }
-themes = { path = "../themes" }
-workbench = { path = "../workbench" }
-actions = { path = "../actions" }
+common.workspace = true
+config.workspace = true
+themes.workspace = true
+workbench.workspace = true
+actions.workspace = true

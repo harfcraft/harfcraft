@@ -1,6 +1,6 @@
 use clap::Parser;
 use cli::Cli;
-use harfcraft_core::constants::{APP_NAME, APP_VERSION};
+use common::constants::{APP_NAME, APP_VERSION};
 
 fn main() {
     let args = Cli::parse();

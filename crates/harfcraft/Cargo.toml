@@ -11,7 +11,7 @@ keywords.workspace = true
 [dependencies]
 tracing.workspace = true
 clap.workspace = true
-harfcraft_core = { path = "../core" }
-cli = { path = "../cli" }
-logging = { path = "../logging" }
-application = { path = "../application" }
+common.workspace = true
+cli.workspace = true
+logging.workspace = true
+application.workspace = true

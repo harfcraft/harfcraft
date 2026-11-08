@@ -13,6 +13,22 @@ serde_json = "1"
 directories = "6"
 anyhow = { version = "1" }
 schemars = "1"
+norad = "0.19.2"
+# Workspace member crates
+actions = { path = "./crates/actions" }
+application = { path = "./crates/application" }
+cli = { path = "./crates/cli" }
+config = { path = "./crates/config" }
+common = { path = "./crates/common" }
+logging = { path = "./crates/logging" }
+project = { path = "./crates/project" }
+session = { path = "./crates/session" }
+storage = { path = "./crates/storage" }
+themes = { path = "./crates/themes" }
+titlebar = { path = "./crates/titlebar" }
+welcome = { path = "./crates/welcome" }
+workbench = { path = "./crates/workbench" }
+workspace = { path = "./crates/workspace" }
 
 [workspace.package]
 version = "0.1.0"

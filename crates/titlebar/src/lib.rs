@@ -1,4 +1,5 @@
 use actions::{CloseWorkspace, PickWorkspace};
+use common::constants::APP_NAME;
 use gpui_kit::IntoElement;
 use gpui_kit::assets::IconName;
 use gpui_kit::base::h_flex;
@@ -6,7 +7,6 @@ use gpui_kit::component::TitleBar;
 use gpui_kit::component::button::{Button, DropdownButton};
 use gpui_kit::component::label::Label;
 use gpui_kit::{App, Entity, SharedString, Window, prelude::*};
-use harfcraft_core::constants::APP_NAME;
 use project::ProjectSource;
 use workspace::Workspace;
 

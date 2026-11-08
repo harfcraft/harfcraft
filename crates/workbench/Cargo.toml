@@ -11,9 +11,9 @@ keywords.workspace = true
 [dependencies]
 gpui-kit.workspace = true
 tracing.workspace = true
-session = { path = "../session" }
-project = { path = "../project" }
-workspace = { path = "../workspace" }
-titlebar = { path = "../titlebar" }
-welcome = { path = "../welcome" }
-actions = { path = "../actions" }
+session.workspace = true
+project.workspace = true
+workspace.workspace = true
+titlebar.workspace = true
+welcome.workspace = true
+actions.workspace = true

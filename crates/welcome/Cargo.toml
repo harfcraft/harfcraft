@@ -10,6 +10,6 @@ keywords.workspace = true
 
 [dependencies]
 gpui-kit.workspace = true
-harfcraft_core = { path = "../core" }
-session = { path = "../session" }
-actions = { path = "../actions" }
+common.workspace = true
+session.workspace = true
+actions.workspace = true

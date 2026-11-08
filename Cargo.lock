@@ -245,9 +245,9 @@ name = "application"
 version = "0.1.0"
 dependencies = [
  "actions",
+ "common",
  "config",
  "gpui-kit",
- "harfcraft_core",
  "themes",
  "tracing",
  "workbench",
@@ -940,7 +940,7 @@ name = "cli"
 version = "0.1.0"
 dependencies = [
  "clap",
- "harfcraft_core",
+ "common",
 ]
 
 [[package]]
@@ -995,6 +995,10 @@ name = "colorchoice"
 version = "1.0.5"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "1d07550c9036bf2ae0c684c4297d503f838287c83c53686d05370d0e139ae570"
+
+[[package]]
+name = "common"
+version = "0.1.0"
 
 [[package]]
 name = "concurrent-queue"
@@ -3109,14 +3113,10 @@ dependencies = [
  "application",
  "clap",
  "cli",
- "harfcraft_core",
+ "common",
  "logging",
  "tracing",
 ]
-
-[[package]]
-name = "harfcraft_core"
-version = "0.1.0"
 
 [[package]]
 name = "harfrust"
@@ -5292,7 +5292,7 @@ name = "project"
 version = "0.1.0"
 dependencies = [
  "anyhow",
- "harfcraft_core",
+ "common",
 ]
 
 [[package]]
@@ -6511,8 +6511,8 @@ name = "storage"
 version = "0.1.0"
 dependencies = [
  "anyhow",
+ "common",
  "directories",
- "harfcraft_core",
  "serde",
  "serde_json",
  "tracing",
@@ -6930,8 +6930,8 @@ name = "titlebar"
 version = "0.1.0"
 dependencies = [
  "actions",
+ "common",
  "gpui-kit",
- "harfcraft_core",
  "project",
  "workspace",
 ]
@@ -7697,8 +7697,8 @@ name = "welcome"
 version = "0.1.0"
 dependencies = [
  "actions",
+ "common",
  "gpui-kit",
- "harfcraft_core",
  "session",
 ]
 

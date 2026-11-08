@@ -1,5 +1,5 @@
 [package]
-name = "harfcraft_core"
+name = "common"
 version.workspace = true
 edition.workspace = true
 description.workspace = true
