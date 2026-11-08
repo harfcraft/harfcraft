@@ -16,3 +16,4 @@ config.workspace = true
 themes.workspace = true
 workbench.workspace = true
 actions.workspace = true
+dummypanel.workspace = true

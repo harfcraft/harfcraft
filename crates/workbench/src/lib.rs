@@ -7,15 +7,20 @@ use gpui_kit::prelude::*;
 use gpui_kit::*;
 use project::Project;
 use session::AppSession;
+use statusbar::AppStatusbar;
 use std::path::{Path, PathBuf};
 use titlebar::AppTitleBar;
 use welcome::Welcome;
 use workspace::Workspace;
 
+enum ActiveView {
+    Workspace(Entity<Workspace>),
+    Welcome(Entity<Welcome>),
+}
+
 pub struct Workbench {
     session: Entity<AppSession>,
-    workspace: Option<Entity<Workspace>>,
-    welcome: Entity<Welcome>,
+    view: ActiveView,
     focus: FocusHandle,
 }
 
@@ -38,8 +43,7 @@ impl Workbench {
         }
         let session = cx.new(|_| session);
         let workbench = Self {
-            workspace: None,
-            welcome: cx.new(|cx| Welcome::new(session.clone(), window, cx)),
+            view: ActiveView::Welcome(cx.new(|cx| Welcome::new(session.clone(), window, cx))),
             session,
             focus: cx.focus_handle(),
         };
@@ -54,7 +58,7 @@ impl Workbench {
                     session.record_project_open(project.path().to_path_buf());
                     cx.notify();
                 });
-                self.workspace = Some(cx.new(|cx| Workspace::new(project, window, cx)));
+                self.view = ActiveView::Workspace(cx.new(|cx| Workspace::new(project, window, cx)));
                 cx.notify();
             }
             Err(err) => {
@@ -100,16 +104,21 @@ impl Workbench {
     fn on_close_workspace(
         &mut self,
         _: &CloseWorkspace,
-        _window: &mut Window,
+        window: &mut Window,
         cx: &mut Context<Self>,
     ) {
-        self.workspace = None;
+        self.view =
+            ActiveView::Welcome(cx.new(|cx| Welcome::new(self.session.clone(), window, cx)));
         cx.notify();
     }
 }
 
 impl Render for Workbench {
     fn render(&mut self, _window: &mut Window, cx: &mut Context<Self>) -> impl IntoElement {
+        let workspace = match &self.view {
+            ActiveView::Workspace(entity) => Some(entity.clone()),
+            ActiveView::Welcome(_) => None,
+        };
         v_flex()
             .key_context(actions::WORKBENCH_CONTEXT)
             .on_action(cx.listener(Self::on_pick_workspace))
@@ -117,10 +126,11 @@ impl Render for Workbench {
             .on_action(cx.listener(Self::on_close_workspace))
             .track_focus(&self.focus)
             .size_full()
-            .child(AppTitleBar::new(self.workspace.clone()))
-            .when_none(&self.workspace, |this| this.child(self.welcome.clone()))
-            .when_some(self.workspace.as_ref(), |this, workspace| {
-                this.child(workspace.clone())
+            .child(AppTitleBar::new(workspace.clone()))
+            .child(match &self.view {
+                ActiveView::Workspace(entity) => entity.clone().into_any_element(),
+                ActiveView::Welcome(entity) => entity.clone().into_any_element(),
             })
+            .child(AppStatusbar::new(workspace.clone()))
     }
 }

@@ -26,12 +26,14 @@ impl Focusable for Welcome {
 }
 
 impl Welcome {
-    pub fn new(session: Entity<AppSession>, _window: &mut Window, cx: &mut Context<Self>) -> Self {
+    pub fn new(session: Entity<AppSession>, window: &mut Window, cx: &mut Context<Self>) -> Self {
+        let focus = cx.focus_handle();
+        focus.focus(window, cx);
         let mut welcome = Self {
             recent_projects: Vec::new(),
             app_name: APP_NAME.into(),
             app_description: APP_DESCRIPTION.into(),
-            focus: cx.focus_handle(),
+            focus,
             _subscription: cx.observe(&session, Self::update_recent_projects),
         };
         welcome.update_recent_projects(session, cx);

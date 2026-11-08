@@ -247,6 +247,7 @@ dependencies = [
  "actions",
  "common",
  "config",
+ "dummypanel",
  "gpui-kit",
  "themes",
  "tracing",
@@ -1447,6 +1448,15 @@ name = "downcast-rs"
 version = "1.2.1"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "75b325c5dbd37f80359721ad39aca5a29fb04c89279657cffdda8736d0c0b9d2"
+
+[[package]]
+name = "dummypanel"
+version = "0.1.0"
+dependencies = [
+ "gpui-kit",
+ "serde",
+ "serde_json",
+]
 
 [[package]]
 name = "dunce"
@@ -6507,12 +6517,21 @@ source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "a2eb9349b6444b326872e140eb1cf5e7c522154d69e7a0ffb0fb81c06b37543f"
 
 [[package]]
+name = "statusbar"
+version = "0.1.0"
+dependencies = [
+ "gpui-kit",
+ "workspace",
+]
+
+[[package]]
 name = "storage"
 version = "0.1.0"
 dependencies = [
  "anyhow",
  "common",
  "directories",
+ "rustc-hash 2.1.3",
  "serde",
  "serde_json",
  "tracing",
@@ -8558,6 +8577,7 @@ dependencies = [
  "gpui-kit",
  "project",
  "session",
+ "statusbar",
  "titlebar",
  "tracing",
  "welcome",
@@ -8569,8 +8589,22 @@ name = "workspace"
 version = "0.1.0"
 dependencies = [
  "actions",
+ "anyhow",
+ "dummypanel",
  "gpui-kit",
  "project",
+ "tracing",
+ "workspace_session",
+]
+
+[[package]]
+name = "workspace_session"
+version = "0.1.0"
+dependencies = [
+ "anyhow",
+ "gpui-kit",
+ "serde",
+ "storage",
  "tracing",
 ]
 

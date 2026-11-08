@@ -16,4 +16,5 @@ project.workspace = true
 workspace.workspace = true
 titlebar.workspace = true
 welcome.workspace = true
+statusbar.workspace = true
 actions.workspace = true

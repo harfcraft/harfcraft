@@ -13,6 +13,7 @@ pub fn run(path: Option<PathBuf>) {
         .run(move |cx| {
             gpui_kit::init(cx);
             actions::init();
+            dummypanel::init(cx);
 
             let config = AppConfig::load();
             let theme_name = config.theme().into();

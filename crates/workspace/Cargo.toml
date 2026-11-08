@@ -11,5 +11,8 @@ keywords.workspace = true
 [dependencies]
 gpui-kit.workspace = true
 tracing.workspace = true
+anyhow.workspace = true
 project.workspace = true
+workspace_session.workspace = true
 actions.workspace = true
+dummypanel.workspace = true

@@ -4,6 +4,7 @@ use directories::ProjectDirs;
 use serde::{Serialize, de::DeserializeOwned};
 use std::{
     fs,
+    hash::BuildHasher,
     path::{Path, PathBuf},
 };
 
@@ -45,6 +46,17 @@ impl AppStorage {
 
     pub fn session_file() -> anyhow::Result<PathBuf> {
         Ok(Self::state_dir()?.join("session.json"))
+    }
+
+    pub fn workspace_sessions_dir() -> anyhow::Result<PathBuf> {
+        let path = Self::state_dir()?.join("workspaces");
+        fs::create_dir_all(&path)?;
+        Ok(path)
+    }
+
+    pub fn workspace_session_file(path: &Path) -> anyhow::Result<PathBuf> {
+        let hash = rustc_hash::FxBuildHasher.hash_one(path);
+        Ok(Self::workspace_sessions_dir()?.join(format!("{hash:X}.json")))
     }
 }
 
